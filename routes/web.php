@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -15,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('posts', function () {
-    // use "without" to turn off the eager load effect
-    return view('posts', [
-        'posts' => Post::latest()->get()
-    ]);
-});
+// Route::get('posts', function () {
+//     // use "Post::without()" to turn off the eager load effect
+//     return view('posts', [
+//         'posts' => Post::latest()->get()
+//     ]);
+// });
 
-Route::get('/posts/{post}', function (Post $post) {
-    return view('post', ['post' => $post]);
-});
+Route::get('/posts', [PostsController::class, 'index']);
+
+Route::get('/posts/{post}', [PostsController::class, 'show']);
 
 Route::get('/authors/{author:username}', function (User $author) {
     return view('posts', [
