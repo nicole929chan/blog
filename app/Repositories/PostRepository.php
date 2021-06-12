@@ -14,12 +14,26 @@ class PostRepository
         $this->model = $model;
     }
 
+    /**
+     * @return PostRepository
+     */
+    public function filter(array $filters)
+    {
+        if ($filters["search"] ?? false) {
+           $this->model = $this->model->where('title', 'like', "%{$filters["search"]}%")
+                ->orWhere('body', 'like', "%{$filters["search"]}%");
+
+            }
+        
+        return $this;
+    }
+
     public function getPosts()
     {
         return $this->model->get();
     }
 
-    public function getPostById($id)
+    public function getPost($id)
     {
         return $this->model->findOrFail($id);
     }

@@ -17,7 +17,9 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = $this->postRepo->getPosts()->load(['category', 'author']);
+        $posts = $this->postRepo
+            ->filter(request(['search']))
+            ->getPosts();
         
         return view('posts', [
             'posts' => $posts
