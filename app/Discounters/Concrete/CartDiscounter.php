@@ -24,4 +24,9 @@ class CartDiscounter
     {
         return $this->discounter->calculate($this->amount);
     }
+
+    public function setDiscounter(Discounter $discounter)
+    {
+        $this->discounter = $discounter;
+    }
 }
