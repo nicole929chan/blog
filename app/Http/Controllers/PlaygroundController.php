@@ -15,7 +15,14 @@ class PlaygroundController extends Controller
     }
 
     public function index()
+
     {
         return $this->cartDiscounterService->discount();
+
+        // 折扣金額之後
+        // 抵用折價劵
+        // 運費?
+        // 手續費?
+        // 計算出應付總金額
     }
 }
