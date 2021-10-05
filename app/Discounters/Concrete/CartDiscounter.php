@@ -22,6 +22,7 @@ class CartDiscounter
 
     public function discount(): int
     {
+        // CartDiscount 委託 $this->discounter 進行折價這個行為
         return $this->discounter->calculate($this->amount);
     }
 

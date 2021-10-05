@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Discounters\Interfaces;
+namespace App\Cart\Interfaces;
 
 interface ICart
 {

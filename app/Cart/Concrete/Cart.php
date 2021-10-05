@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Discounters\Concrete;
+namespace App\Cart\Concrete;
 
-use App\Discounters\Interfaces\ICart;
+use App\Cart\Interfaces\ICart;
 
+
+/**
+ * 基礎類別
+ */
 class Cart implements ICart
 {
     public function cost(): int
